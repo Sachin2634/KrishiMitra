@@ -44,8 +44,8 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <button disabled={!role} 
-                className={`absolute p-[1.94vh] pl-[4%] pr-[4%] mt-[82vh] text-[5vh] rounded-[42px] cursor-pointer hover:shadow-2xl hover:shadow-white 
-                    ${role ? 'bg-white text-green-600' : 'bg-[rgb(150,150,150)] text-[rgb(200,200,200)] cursor-not-allowed'}`}
+                className={`absolute p-[1.94vh] pl-[4%] pr-[4%] mt-[82vh] text-[5vh] rounded-[42px]  hover:shadow-white 
+                    ${role ? 'bg-white text-green-600 cursor-pointer' : 'bg-[rgb(150,150,150)] text-[rgb(200,200,200)] cursor-not-allowed'}`}
                     onClick={() => {
                         if (isFarmer) navigate("/farmerhomepage");
                     if (isConsumer) navigate("/consumerhomepage");

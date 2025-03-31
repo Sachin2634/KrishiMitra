@@ -1,2 +1,25 @@
 @import "tailwindcss";
 
+.jomolhari-regular {
+    font-family: "Jomolhari", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+.inter-regular {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+.joan-regular {
+    font-family: "Joan", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .itim-regular {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
