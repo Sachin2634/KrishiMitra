@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
+import { Link } from "react-router";
 
 const SellerNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,12 +47,16 @@ const SellerNavbar = () => {
             <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">Start</div>
             <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">Pricing</div>
             <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">FAQ</div>
+            <Link to ='/contactus'>
             <div className="pr-[7.245vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">Contact Us</div>
-            
+            </Link>
           </div>
 
           {/* Start Selling Button */}
-          <div className="pr-[3.52vw] text-[4vw] md:text-[2.21vw] pl-[2.5vw] md:pl-[0] text-white mt-[7px] md:mt-[0px] cursor-pointer">Login</div>
+          <Link to ='/login'>
+          <div className="pr-[3.52vw] text-[4vw] md:text-[2.21vw] pl-[2.5vw] md:pl-[0] text-white mt-[7px] md:mt-[0px] cursor-pointer">
+            Login</div>
+            </Link>
           <button className="px-[2.5vw] py-[0.69vw] bg-[#006A30] text-[4vw] md:text-[2.21vw] text-white rounded-[22px] mt-[20px] md:mt-[0px] cursor-pointer">
             Start Selling
           </button>

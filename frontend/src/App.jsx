@@ -5,6 +5,7 @@ import './index.css'
 import LandingPage from './pages/LandingPage';
 import FarmerHomePage from './pages/FarmerHomepage'
 import ContactUs from './pages/ContactUs';
+import Login from './pages/Login';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
             <Route index element={<LandingPage />}/>
             <Route path='/farmerhomepage' element={<FarmerHomePage />}/>
             <Route path='/contactus' element={<ContactUs />}/>
+            <Route path='/login' element={<Login />}/>
         </Routes>
       </BrowserRouter>
     </>

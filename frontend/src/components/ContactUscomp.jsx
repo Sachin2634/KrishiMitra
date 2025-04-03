@@ -1,65 +1,66 @@
-// src/ContactUs.jsx
-import React from 'react';
-import { FaPhone, FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import React from 'react'
+import phone from "../assets/Vector (1).png"
+import whatsapp from "../assets/Vector (2).png"
+import mail from "../assets/Vector (3).png"
+import location from "../assets/Group.png"
+
 
 const ContactUscomp = () => {
   return (
-    <div className="bg-black text-white">
-      <div className="bg-cover bg-center h-64" style={{ backgroundImage: 'url(https://via.placeholder.com/1500x400)' }}>
-        <div className="flex justify-center items-center h-full">
-          <h1 className="text-4xl md:text-6xl font-bold">Contact Us</h1>
+    <div className='bg-white'>
+      <div style={
+            {backgroundImage: "url('src/assets/Rectangle 55.png')",
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100vw'
+        }} className='jomolhari-regular bg-center h-[343px] text-white text-[98px] text-center py-[146px] mb-[65px]'>
+          Contact Us</div>
+
+      <div className='flex flex-col md:flex-row'>
+        <div className='bg-[#00CC5C] w-[580px] h-[1138px] ml-[80px] mr-[101px] mb-[260px] flex flex-col items-center'>
+          <h1 className='itim-regular text-[51px] mt-[85px]'>
+            Get in Touch</h1>
+          <div>
+            <h3 className='joan-regular text-[32px] mt-[59px] mb-[21px]'>
+              Name</h3>
+            <input type="text" className='w-[488px] h-[76px] bg-white'/>
+          </div>
+          <div>
+            <h3 className='joan-regular text-[32px] mt-[28px] mb-[21px]'>
+              Email</h3>
+            <input type='email' className='w-[488px] h-[76px] bg-white'/>
+          </div>
+          <div>
+            <h3 className='joan-regular text-[32px] mt-[28px] mb-[21px]'>
+              Message</h3>
+            <input type="text" className='w-[488px] h-[272px] bg-white'/>
+          </div>
+          <button className='joan-regular w-[220px] h-[76px] text-center text-[32px] bg-[white] mt-[90px] rounded-[32px]'>Send</button>
         </div>
-      </div>
-      <div className="flex flex-col md:flex-row justify-center items-start p-8">
-        <div className="bg-green-500 p-6 rounded-lg w-full md:w-1/3 mb-8 md:mb-0 md:mr-8">
-          <h2 className="text-2xl font-bold mb-4">Get in touch</h2>
-          <form>
-            <div className="mb-4">
-              <label className="block mb-2">Name</label>
-              <input type="text" className="w-full p-2 rounded" />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-2">Email</label>
-              <input type="email" className="w-full p-2 rounded" />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-2">Message</label>
-              <textarea className="w-full p-2 rounded h-24"></textarea>
-            </div>
-            <button type="submit" className="bg-white text-black px-4 py-2 rounded">Send</button>
-          </form>
-        </div>
-        <div className="bg-white text-black p-6 rounded-lg w-full md:w-1/3">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-col items-center">
-              <div className="bg-green-500 p-4 rounded-full mb-2">
-                <FaPhone className="text-white text-2xl" />
-              </div>
-              <span>Phone Number</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-green-500 p-4 rounded-full mb-2">
-                <FaWhatsapp className="text-white text-2xl" />
-              </div>
-              <span>Whatsapp</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-green-500 p-4 rounded-full mb-2">
-                <FaEnvelope className="text-white text-2xl" />
-              </div>
-              <span>Gmail</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-green-500 p-4 rounded-full mb-2">
-                <FaMapMarkerAlt className="text-white text-2xl" />
-              </div>
-              <span>Location</span>
-            </div>
+        <div className='bg-white w-[601px] h-[766px] shadow-xl grid grid-cols-2'>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mt-[138px] mb-[94px] bg-[#00CC5C] text-center'>
+            <img src={phone} alt="" className='ml-[67px] mt-[23px] mb-[8px]'/>
+            <div className='joan-regular text-[21px] font-extrabold'>
+              Phone Number</div>
+          </div>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mt-[138px] mb-[94px] bg-[#00CC5C] text-center'>
+            <img src={whatsapp} alt="" className='ml-[67px] mt-[23px] mb-[8px]'/>
+            <div className='joan-regular text-[21px]'>
+              Whatsapp</div>
+          </div>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mb-[138px] bg-[#00CC5C] text-center'>
+          <img src={mail} alt="" className='ml-[73px] mt-[37px] mb-[8px]'/>
+          <div className='joan-regular text-[21px]'>
+            Gmail</div>
+          </div>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mb-[138px] bg-[#00CC5C] text-center'>
+          <img src={location} alt="Mail" className='ml-[67px] mt-[23px] mb-[8px]'/>
+          <div className='joan-regular text-[21px]'>
+            Location</div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ContactUscomp;
+export default ContactUscomp
