@@ -28,7 +28,7 @@ const LandingPage = () => {
                 <div className="absolute grid grid-cols-1 md:grid-cols-2 gap-8 mt-[27vh] w-full place-items-center ">
                     {/* Farmer */}
                     <div className={`h-[380px] w-[290px] bg-green-600 flex flex-col pt-6 items-center rounded-[16px] cursor-pointer
-                     hover:bg-green-800 transition-all duration-300 hover:shadow-2xl hover:shadow-white
+                     hover:bg-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-black
                      ${isFarmer ? 'bg-green-800' : 'bg-green-600'}`}
                     onClick={() => handleClick("Farmer")}>
                         <img src="src/assets/Mask group.png" alt="" className="w-[241px] h-[241px] object-contain" onClick={() => handleClick("Farmer")}/>
@@ -36,7 +36,7 @@ const LandingPage = () => {
                     </div>
                     {/* Consumer */}
                     <div className={`h-[380px] w-[290px] bg-green-600 flex flex-col pt-6 items-center rounded-[16px] cursor-pointer 
-                    hover:bg-green-800 transition-all duration-300 hover:shadow-2xl hover:shadow-white 
+                    hover:bg-green-800 transition-all duration-300 hover:shadow-xl hover:shadow-black 
                     ${isConsumer ? 'bg-green-800' : 'bg-green-600'}`}
                     onClick={() => handleClick("Consumer")}>
                         <img src="src/assets/Mask group (1).png" alt="" className="w-[241px] h-[241px] object-contain" onClick={() => handleClick("Consumer")}/>
@@ -45,7 +45,7 @@ const LandingPage = () => {
                 </div>
                 <button disabled={!role} 
                 className={`absolute p-[1.94vh] pl-[4%] pr-[4%] mt-[82vh] text-[5vh] rounded-[42px]  hover:shadow-white 
-                    ${role ? 'bg-white text-green-600 cursor-pointer' : 'bg-[rgb(150,150,150)] text-[rgb(200,200,200)] cursor-not-allowed'}`}
+                    ${role ? 'bg-green-600 hover:bg-green-700 text-white cursor-pointer' : 'bg-green-300 text-white cursor-not-allowed'}`}
                     onClick={() => {
                         if (isFarmer) navigate("/farmerhomepage");
                     if (isConsumer) navigate("/consumerhomepage");

@@ -5,38 +5,38 @@ import img2 from '../assets/image (2).png'
 import img3 from '../assets/image (3).png'
 const JoinUs = () => {
   return (
-    <div className='w-full h-auto bg-[#FFFFFF] flex flex-col md:flex-row '>
-        <div className='p-[80px] pt-[442px] md:pb-[437px] jomolhari-regular text-[51px] text-[#006A30] font-black  text-center '>
+    <div className='w-full h-auto bg-[#FFFFFF] flex flex-col md:flex-row border-b-[2px] scale-90 md:scale-100'>
+        <div className='pt-[80px] pl-[50px] md:pl-[80px] md:p-[80px] md:pt-[442px] md:pb-[437px] jomolhari-light text-[51px] text-[#006A30] font-black  text-center '>
           Why join us?</div>
         <div className='ml-[80px] md:ml-[259px] mt-[100px] mb-[100px]'>
             <div className='w-[85vw] md:w-[680px] h-[293px] bg-[#00CC5C] mb-[19px] rounded-[20px] flex'>
               <img src={img1} alt="" className='w-[168px] h-[168px] translate-x-[-50%] mt-[38px]'/>
               <div>
-                <h2 className='inter-regular text-[#FFFFFF] text-[45px] w-[329px] h-[108px] text-center mt-[29px] leading-tight'>
+                <h2 className='jomolhari-light text-[#FFFFFF] text-[44px] w-[329px] h-[108px] text-center mt-[29px] leading-tight'>
                   Market Price Tracking</h2>
                 <ul className='list-disc mt-[11px] w-[399px] h-[95px]'>
-                  <li className='inter-regular text-[20px] '>Show live market rates for crops and livestock.</li>
-                  <li className='inter-regular text-[20px] '>Suggest the best time and place to sell produce.</li>
+                  <li className='joan-regular text-[20px] '>Show live market rates for crops and livestock.</li>
+                  <li className='joan-regular text-[20px] '>Suggest the best time and place to sell produce.</li>
                 </ul>
               </div>
             </div>
             <div className='w-[85vw] md:w-[680px] h-[293px] bg-[#00CC5C] mb-[19px] rounded-[20px] flex'>
               <img src={img2} alt="" className=' translate-x-[-50%] w-[153px] h-[153px] mt-[69px]'/>
               <div>
-                <h2 className='inter-regular text-[#FFFFFF] text-[45px] w-[400px] h-[102px] text-center mt-[6px] leading-tight'>Community and Knowledge Sharing</h2>
+                <h2 className='jomolhari-light text-[#FFFFFF] text-[44px] w-[400px] h-[102px] text-center mt-[6px] leading-tight'>Community and Knowledge Sharing</h2>
                 <ul className='list-disc  mt-[40px] w-[426px] h-[95px]'>
-                  <li className='inter-regular text-[20px]'>Include a forum for farmers to exchange experiences.</li>
-                  <li className='inter-regular text-[20px]'>Provide access to expert advice and best farming practices through blogs.</li>
+                  <li className='joan-regular text-[20px]'>Include a forum for farmers to exchange experiences.</li>
+                  <li className='joan-regular text-[20px]'>Provide access to expert advice and best farming practices through blogs.</li>
                 </ul>
               </div>
             </div>
             <div className='w-[85vw] md:w-[680px] h-[293px] bg-[#00CC5C] mb-[19px] rounded-[20px] flex'>
               <img src={img3} alt="" className=' translate-x-[-50%] w-[132px] h-[132px] mt-[69px]'/>
               <div>
-                <h2 className='inter-regular text-[#FFFFFF] text-[45px] w-[400px] h-[102px] text-center mt-[6px] leading-tight'>Machinery and Equipment Rental</h2>
+                <h2 className='jomolhari-light text-[#FFFFFF] text-[44px] w-[400px] h-[102px] text-center mt-[6px] leading-tight'>Machinery and Equipment Rental</h2>
                 <ul className='list-disc  mt-[33px] w-[426px] h-[95px]'>
-                  <li className='inter-regular text-[20px]'>Connect farmers with nearby equipment rental services.</li>
-                  <li className='inter-regular text-[20px]'>Allow sharing or renting out machinery within the community.</li>
+                  <li className='joan-regular text-[20px]'>Connect farmers with nearby equipment rental services.</li>
+                  <li className='joan-regular text-[20px]'>Allow sharing or renting out machinery within the community.</li>
                 </ul>
               </div>
             </div>

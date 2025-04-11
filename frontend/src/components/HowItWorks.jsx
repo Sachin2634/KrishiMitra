@@ -5,7 +5,7 @@ import Stepper from './Stepper'
 const HowItWorks = () => {
   return (
     <div className='pb-[240px]'>
-        <div className='pt-[80px] pb-[180px] jomolhari-regular text-[51px] text-[#006A30] font-black  text-center'>How It Works</div>
+        <div className='pt-[80px] pb-[140px] jomolhari-regular text-[79px] text-[#006A30] font-black  text-center'>How It Works</div>
         <div className='flex'>
             <div className='ml-[25px] mr-[222px]'>
                 <div className='itim-regular text-[24px]'>Create Account</div>

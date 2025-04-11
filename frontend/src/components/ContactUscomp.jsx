@@ -22,38 +22,38 @@ const ContactUscomp = () => {
           <div>
             <h3 className='joan-regular text-[32px] mt-[59px] mb-[21px]'>
               Name</h3>
-            <input type="text" className='w-[488px] h-[76px] bg-white'/>
+            <input type="text" className='w-[488px] rounded-[6px] h-[76px] bg-white'/>
           </div>
           <div>
             <h3 className='joan-regular text-[32px] mt-[28px] mb-[21px]'>
               Email</h3>
-            <input type='email' className='w-[488px] h-[76px] bg-white'/>
+            <input type='email' className='w-[488px] rounded-[6px] h-[76px] bg-white'/>
           </div>
           <div>
             <h3 className='joan-regular text-[32px] mt-[28px] mb-[21px]'>
               Message</h3>
-            <input type="text" className='w-[488px] h-[272px] bg-white'/>
+            <input type="text" className='w-[488px] rounded-[6px] h-[272px] bg-white'/>
           </div>
           <button className='joan-regular w-[220px] h-[76px] text-center text-[32px] bg-[white] mt-[90px] rounded-[32px]'>Send</button>
         </div>
         <div className='bg-white w-[601px] h-[766px] shadow-xl grid grid-cols-2'>
-          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mt-[138px] mb-[94px] bg-[#00CC5C] text-center'>
-            <img src={phone} alt="" className='ml-[67px] mt-[23px] mb-[8px]'/>
-            <div className='joan-regular text-[21px] font-extrabold'>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mt-[138px] mb-[94px] bg-[#00CC5C] text-center rounded-[8px]'>
+            <img src={phone} alt="" className='ml-[67px] mt-[35px] mb-[25px]'/>
+            <div className='joan-regular text-[21px]'>
               Phone Number</div>
           </div>
-          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mt-[138px] mb-[94px] bg-[#00CC5C] text-center'>
-            <img src={whatsapp} alt="" className='ml-[67px] mt-[23px] mb-[8px]'/>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mt-[138px] mb-[94px] bg-[#00CC5C] text-center rounded-[8px]'>
+            <img src={whatsapp} alt="" className='ml-[67px] mt-[35px] mb-[25px]'/>
             <div className='joan-regular text-[21px]'>
               Whatsapp</div>
           </div>
-          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mb-[138px] bg-[#00CC5C] text-center'>
-          <img src={mail} alt="" className='ml-[73px] mt-[37px] mb-[8px]'/>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mb-[138px] bg-[#00CC5C] text-center rounded-[8px]'>
+          <img src={mail} alt="" className='ml-[73px] mt-[50px] mb-[20px]'/>
           <div className='joan-regular text-[21px]'>
             Gmail</div>
           </div>
-          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mb-[138px] bg-[#00CC5C] text-center'>
-          <img src={location} alt="Mail" className='ml-[67px] mt-[23px] mb-[8px]'/>
+          <div className='w-[198px] h-[198px] ml-[49px] mr-[107px] mb-[138px] bg-[#00CC5C] text-center rounded-[8px]'>
+          <img src={location} alt="Mail" className='ml-[67px] mt-[30px] mb-[18px]'/>
           <div className='joan-regular text-[21px]'>
             Location</div>
           </div>

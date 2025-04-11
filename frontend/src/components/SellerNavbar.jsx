@@ -7,8 +7,8 @@ const SellerNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-green-500 w-full relative">
-      <div className="flex justify-between items-center p-[2.97vw]">
+    <nav className="bg-green-500 w-full relative shadow-xl">
+      <div className="flex justify-between items-center p-[2.97vw] jomolhari-regular">
 
         {/* Hamburger Icon - Mobile View */}
         <div className="md:hidden pl-[5vw]">
@@ -19,7 +19,7 @@ const SellerNavbar = () => {
         </div>
 
         {/* Logo - Centered in Mobile */}
-        <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 text-white text-[4vw] font-medium cursor-pointer">
+        <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 text-white text-[4vw] font-light cursor-pointer">
           logo
         </div>
 
@@ -38,28 +38,40 @@ const SellerNavbar = () => {
           </div>
 
           {/* Logo - Only Visible on Large Screens */}
-          <div className="hidden md:block text-[2.76vw] font-medium pl-[5.24vw] pr-[11.66vw] cursor-pointer">
+          <div className="hidden md:block text-[2.76vw] font-light pl-[5.24vw] pr-[11vw] cursor-pointer">
             logo
           </div>
 
           {/* Menu Items */}
-          <div className="flex flex-col md:flex-row text-[4vw] md:text-[2.21vw] text-white">
-            <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">Start</div>
-            <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">Pricing</div>
-            <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">FAQ</div>
+          <div className="flex flex-col md:flex-row text-[4vw] md:text-[2.21vw] text-white font-light">
+          <Link to ='/login'>
+            <div className="pr-[3vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">
+              Start</div>
+              </Link>
+              <Link to ='/pricing'>
+            <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">
+              Pricing</div>
+              </Link>
+              <Link to ='/faq'>
+            <div className="pr-[3.31vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">
+              FAQ</div>
+              </Link>
             <Link to ='/contactus'>
-            <div className="pr-[7.245vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">Contact Us</div>
+            <div className="pr-[7.245vw] pl-[2.5vw] md:pl-[0] mt-[7px] md:mt-[0px] cursor-pointer">
+              Contact Us</div>
             </Link>
           </div>
 
           {/* Start Selling Button */}
           <Link to ='/login'>
-          <div className="pr-[3.52vw] text-[4vw] md:text-[2.21vw] pl-[2.5vw] md:pl-[0] text-white mt-[7px] md:mt-[0px] cursor-pointer">
+          <div className="pr-[3.52vw] text-[4vw] md:text-[2.21vw] pl-[2.5vw] md:pl-[0] text-white mt-[7px] md:mt-[0px] cursor-pointer font-light">
             Login</div>
             </Link>
-          <button className="px-[2.5vw] py-[0.69vw] bg-[#006A30] text-[4vw] md:text-[2.21vw] text-white rounded-[22px] mt-[20px] md:mt-[0px] cursor-pointer">
+            <Link to ='/signup'>
+          <button className="px-[2.5vw] py-[0.69vw] bg-[#006A30] text-[4vw] md:text-[2.21vw] text-white rounded-[22px] mt-[20px] md:mt-[0px] cursor-pointer font-light">
             Start Selling
           </button>
+          </Link>
         </div>
       </div>
     </nav>
