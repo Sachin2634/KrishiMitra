@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Faq from './pages/Faq';
 import Pricing from './pages/Pricing';
+import Dashboard from './pages/Dashboard';
+import AddProductForm from './pages/AddProductForm';
 
 function App() {
 
@@ -23,6 +25,8 @@ function App() {
             <Route path='/signup' element={<SignUp />}/>
             <Route path='/faq' element={<Faq />}/>
             <Route path='/pricing' element={<Pricing />}/>
+            <Route path='/dashboard' element={<Dashboard />}/>
+            <Route path='/addproduct' element={<AddProductForm />}/>
         </Routes>
       </BrowserRouter>
     </>
