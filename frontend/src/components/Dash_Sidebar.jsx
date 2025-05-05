@@ -8,13 +8,24 @@ const Dash_Sidebar = () => {
         <Link to ='/dashboard'>
         <div className='text-[white] text-[30px] mb-[52px] jomolhari-light'>Dashboard</div>
         </Link>
+        <Link to ='/blogs'>
         <div className='text-[rgb(255,255,255)] text-[30px] mb-[52px] jomolhari-light'>Blogs</div>
-        <Link to ='/addproduct'>
+        </Link>
+        <Link to ='/product'>
         <div className='text-[white] text-[30px] mb-[52px] jomolhari-light w-[230px]'>My product</div>
         </Link>
+        <Link to ='/pricetracking'>
         <div className='text-[white] text-[30px] mb-[52px] jomolhari-light'>Pricing Tracking</div>
+        </Link>
+        <Link to ='/rental'>
+        <div className='text-[white] text-[30px] mb-[52px] jomolhari-light'>Rent Equipments</div>
+        </Link>
+        <Link to ='/account'>
         <div className='text-[white] text-[30px] mb-[52px] jomolhari-light'>Account Settings</div>
+        </Link>
+        <Link to ='/'>
         <div className='text-[white] text-[30px] mb-[52px] jomolhari-light'>Sign Out</div>
+        </Link>
     </div>
   )
 }
