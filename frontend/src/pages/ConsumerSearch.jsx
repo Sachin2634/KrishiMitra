@@ -1,15 +1,15 @@
 import React from 'react'
 import SearchProducts from '../components/SearchProducts'
-import Nav_Weather from '../components/Nav_Weather'
 import Footer from '../components/Footer'
-import Dash_Sidebar from '../components/Dash_Sidebar'
+import ConsumerNavbar from '../components/ConsumerNavbar'
+import ConsumerSideBar from '../components/ConsumerSideBar'
 
 const ConsumerSearch = () => {
   return (
     <div>
-        <Nav_Weather/>
+        <ConsumerNavbar/>
         <div className='flex'>
-            <div className='bg-[#00cc5c]'><Dash_Sidebar/></div>
+            <div className='bg-[#00cc5c]'><ConsumerSideBar/></div>
             <SearchProducts/>
         </div>
         <Footer/>
