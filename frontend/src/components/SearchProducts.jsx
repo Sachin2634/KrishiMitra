@@ -270,7 +270,7 @@ export default function SearchProducts() {
         Showing {filtered.length ? `1-${Math.min(filtered.length, 12)}` : 0} of {productsArr.length} results
       </div>
       {/* Product grid */}
-      <div className="ml-[100px] mr-[120px] mb-16 grid grid-cols-2 md:grid-cols-3 gap-y-9 gap-x-2 md:gap-x-4">
+      <div className="ml-[120px] mr-[120px] mb-16 grid grid-cols-2 md:grid-cols-3 gap-y-9 gap-x-2 md:gap-x-4">
         {filtered.slice(0, 12).map(product => (
           <ConsumerProduct product={product} key={product.id} />
         ))}

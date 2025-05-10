@@ -1,20 +1,44 @@
 import React from 'react';
 
-const ProductImages = () => {
+function ProductImages({ formData, handleChange }) {
+  const handleImageUpload = (event) => {
+    const files = Array.from(event.target.files);
+    
+    // Create image preview URLs
+    const imageUrls = files.map((file) => URL.createObjectURL(file));
+
+    // Use handleChange to update formData with the selected files
+    handleChange({
+      target: { name: 'images', value: imageUrls },
+    });
+  };
+
   return (
-    <div className="p-4 border border-black/20 shadow-xl rounded-[16px] mt-[98px] mb-[84px]">
-      <h3 className="jomolhari-regular text-center text-[27px] mt-[18px] mb-[46px]">Product Images</h3>
-      <div className="w-[302px] h-[302px] bg-gray-200 flex items-center justify-self-center rounded-[8px]">
-        <span className='ml-[20%] text-[26px] itim-regular'>Click to upload</span>
-      </div>
-      <div className="flex space-x-2">
-        <div className="w-[92px] h-[92px] mt-[29px] mb-[53px] bg-gray-200 rounded-[8px]"></div>
-        <div className="w-[92px] h-[92px] mt-[29px] mb-[53px] bg-gray-200 rounded-[8px]"></div>
-        <div className="w-[92px] h-[92px] mt-[29px] mb-[53px] bg-gray-200 rounded-[8px]"></div>
-        <div className="w-[92px] h-[92px] mt-[29px] mb-[53px] bg-gray-200 rounded-[8px]"></div>
-      </div>
+    <div className="max-w-xs mx-auto border border-gray-300 rounded-lg p-4 text-center">
+      <h3 className="text-lg font-semibold mb-4">Product Images</h3>
+
+      <input
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={handleImageUpload}
+        className="mb-4 block mx-auto"
+      />
+
+      {formData.images && formData.images.length > 0 && (
+        <div className="flex justify-center gap-2 flex-wrap">
+          {formData.images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Product ${index}`}
+              className="w-16 h-16 object-cover rounded-md"
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default ProductImages;

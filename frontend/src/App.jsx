@@ -19,6 +19,7 @@ import RentEquipments from './pages/RentEquipments';
 import SearchProducts from './components/SearchProducts';
 import ConsumerSearch from './pages/ConsumerSearch';
 import ProductDescription from './components/ProductDescription';
+import ConsumerHomepage from './pages/ConsumerHomepage';
 
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
         <Routes>
             <Route index element={<LandingPage />}/>
             <Route path='/farmerhomepage' element={<FarmerHomePage />}/>
-            <Route path='/consumerhomepage' element={<ConsumerSearch />}/>
+            <Route path='/consumerhomepage' element={<ConsumerHomepage/>}/>
+            <Route path='/consumersearch' element={<ConsumerSearch/>}/>
             <Route path='/contactus' element={<ContactUs />}/>
             <Route path='/login' element={<Login />}/>
             <Route path='/signup' element={<SignUp />}/>

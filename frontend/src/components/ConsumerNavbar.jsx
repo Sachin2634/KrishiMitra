@@ -49,7 +49,7 @@ export default function ConsumerNavbar() {
         </div>
       </div>
       {/* Search Bar */}
-      <div className="flex justify-center mt-6">
+      {/* <div className="flex justify-center mt-6">
         <div className="flex items-center bg-white rounded-2xl shadow-lg px-6 py-2 w-[65vw] max-w-5xl">
           <svg className="w-8 h-8 text-green-700" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="7" stroke="currentColor" />
@@ -60,7 +60,7 @@ export default function ConsumerNavbar() {
             placeholder="Search"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,27 +1,27 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Product from "./Product";
 import { Link } from "react-router";
-
-const prod = [
-  { id: 1, name: "Rice", price: 62, unitType: "Kg", stock: 75, lastAdded: "2025-04-03", category: "Grains" },
-  { id: 2, name: "Wheat", price: 55, unitType: "Kg", stock: 40, lastAdded: "2025-04-17", category: "Grains" },
-  { id: 3, name: "Apple", price: 150, unitType: "Dozen", stock: 34, lastAdded: "2025-04-12", category: "Fruits" },
-  { id: 4, name: "Banana", price: 60, unitType: "Dozen", stock: 54, lastAdded: "2025-04-08", category: "Fruits" },
-  { id: 5, name: "Carrot", price: 40, unitType: "Kg", stock: 60, lastAdded: "2025-04-20", category: "Vegetables" },
-  { id: 6, name: "Broccoli", price: 80, unitType: "Kg", stock: 22, lastAdded: "2025-04-25", category: "Vegetables" },
-  { id: 7, name: "Jam", price: 95, unitType: "Bottle", stock: 17, lastAdded: "2025-04-02", category: "Processed Foods" },
-  { id: 8, name: "Handmade Basket", price: 350, unitType: "Piece", stock: 12, lastAdded: "2025-04-16", category: "Handicrafts" },
-];
-
-const categories = [
-  "Grains",
-  "Fruits",
-  "Processed Foods",
-  "Handicrafts",
-  "Vegetables"
-];
+import axios from 'axios';
 
 const Products = () => {
+  const [products, setProducts] = useState([]);  // Ensure it's initialized as an array
+  
+  useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/products');
+      console.log('API Response:', response.data);
+      // Ensure products is set to an array
+      setProducts(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      setProducts([]);  // Default to an empty array on error
+    }
+  };
+  
+  fetchProducts();
+}, []);
+
   const [showAll, setShowAll] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
@@ -31,7 +31,7 @@ const Products = () => {
   const handleSearchChange = (e) => setSearchName(e.target.value);
 
   // Filtering logic: by category AND searchName
-  const filteredProd = prod.filter(p => 
+  const filteredProd = products.filter(p => 
     (selectedCategory === "All Categories" || p.category === selectedCategory) &&
     (p.name.toLowerCase().includes(searchName.toLowerCase()))
   );
@@ -130,7 +130,7 @@ const Products = () => {
         <div className="flex bg-white py-6 px-8 mb-[70px] text-[32px] joan-regular text-[#006A30] justify-between rounded-[32px] border border-black/10">
           <div className="w-[16%] min-w-[110px] text-left">Product</div>
           <div className="w-[12%] text-left">Price</div>
-          <div className="w-[14%] text-left">Unit<br />Type</div>
+          {/* <div className="w-[14%] text-left">Unit<br />Type</div> */}
           <div className="w-[19%] text-left">Available Stock</div>
           <div className="w-[17%] text-left">Last Added</div>
           <div className="w-[12%] text-left">Edit/<br />Delete</div>
@@ -146,20 +146,20 @@ const Products = () => {
           }}
         >
           {visibleProd.map((product, idx) => (
-            <div
-              key={product.id}
-              className={idx === 0 ? "min-h-[70px]" : ""}
-            >
-              <Product product={product} />
-            </div>
-          ))}
+  <div
+    key={product._id} // Ensure this is unique for every product
+    className={idx === 0 ? "min-h-[70px]" : ""}
+  >
+    <Product product={product} />
+  </div>
+))}
           {filteredProd.length === 0 && (
             <div className="text-center text-gray-500 text-xl py-16">No products found.</div>
           )}
         </div>
 
         {/* View More / View Less */}
-        {filteredProd.length > 6 && (
+        {filteredProd.length > 3 && (
           <div className="w-full flex justify-center mt-6 mb-8">
             <button
               className="bg-[#006A30] hover:bg-green-700 text-white text-[24px] itim-regular px-10 py-4 rounded-[12px] shadow"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav_Weather from '../components/Nav_Weather';
 import Dash_Sidebar from '../components/Dash_Sidebar';
 import KrishiLearn from '../components/KrishiLearn';
@@ -7,17 +7,40 @@ import ConsumerNavbar from '../components/ConsumerNavbar';
 import ConsumerSideBar from '../components/ConsumerSideBar';
 
 const Blogs = () => {
-  // Read user from localStorage and parse it
-  const user = JSON.parse(localStorage.getItem('user'));
+  // Local state for managing the user data
+  const [user, setUser] = useState(null);
+
+  // Use effect to load the user from localStorage
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (error) {
+        console.error("Error parsing user data from localStorage", error);
+        // Optionally handle the case where the JSON is invalid
+      }
+    }
+  }, []);
+
+  // Rendering logic
+  const renderNavbar = () => {
+    if (!user) return null;
+    return user.role === 'farmer' ? <Nav_Weather /> : <ConsumerNavbar />;
+  };
+
+  const renderSidebar = () => {
+    if (!user) return null;
+    return user.role === 'farmer' ? <Dash_Sidebar /> : <ConsumerSideBar />;
+  };
 
   return (
     <div>
-      {user && user.role === 'farmer' ? <Nav_Weather /> : <ConsumerNavbar />}
-
+      {renderNavbar()}
       <div className='flex'>
-          <div className='bg-[#00cc5c]'>
-          {user && user.role === 'farmer' ? <Dash_Sidebar/> : <ConsumerSideBar />}
-          </div>
+        <div className='bg-[#00cc5c]'>
+          {renderSidebar()}
+        </div>
         <KrishiLearn />
       </div>
       <Footer />
