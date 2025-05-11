@@ -1,233 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import axios from 'axios';
 import ConsumerProduct from "./ConsumerProduct";
-
-// Dummy product images
-const appleImg = "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg";
-const bananaImg = "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg";
-const tomatoImg = "https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg";
-const potatoImg = "https://upload.wikimedia.org/wikipedia/commons/6/60/Raw_potatoes.jpg";
-const wheatImg = "https://upload.wikimedia.org/wikipedia/commons/4/41/Wheat_field.jpg";
-const riceImg = "https://upload.wikimedia.org/wikipedia/commons/6/6f/Rice_bowl_02.jpg";
-
-export const productsArr = [
-  {
-    id: 1,
-    image: appleImg,
-    category: "Fruits",
-    name: "Apple",
-    weight: "1kg",
-    price: 90,
-    seller: "xyz Farmer",
-    rating: 4.5,
-    description: "Fresh and juicy apples",
-    storage: "Store in dry and cool places away from direct sunlight",
-    nutrition: [
-      "Rich in fiber and vitamin C.",
-      "Contains antioxidants.",
-      "Helps boost immunity.",
-    ]
-  },
-  {
-    id: 2,
-    image: bananaImg,
-    category: "Fruits",
-    name: "Banana",
-    weight: "1kg",
-    price: 30,
-    seller: "abc Trader",
-    rating: 4.7,
-    description: "Sweet and ripe bananas.",
-    storage: "Keep at room temperature and away from direct heat.",
-    nutrition: [
-      "High in potassium.",
-      "Source of dietary fiber.",
-      "Provides quick energy.",
-    ]
-  },
-  {
-    id: 3,
-    image: tomatoImg,
-    category: "Vegetables",
-    name: "Tomato",
-    weight: "1kg",
-    price: 25,
-    seller: "MNO Agro",
-    rating: 4.2,
-    description: "Fresh red tomatoes.",
-    storage: "Store at room temperature and avoid refrigerating.",
-    nutrition: [
-      "Rich in vitamin C and K.",
-      "Good source of lycopene.",
-      "Low in calories.",
-    ]
-  },
-  {
-    id: 4,
-    image: potatoImg,
-    category: "Vegetables",
-    name: "Potato",
-    weight: "1kg",
-    price: 20,
-    seller: "xyz Farmer",
-    rating: 4.1,
-    description: "High-quality potatoes ideal for cooking.",
-    storage: "Keep in a cool, dry place.",
-    nutrition: [
-      "Source of vitamin B6 and C.",
-      "Contains potassium.",
-      "Good source of fiber.",
-    ]
-  },
-  {
-    id: 5,
-    image: wheatImg,
-    category: "Grains",
-    name: "Wheat",
-    weight: "5kg",
-    price: 200,
-    seller: "Ravi Agro",
-    rating: 4.6,
-    description: "Finest quality wheat grains.",
-    storage: "Store in airtight container in a cool place.",
-    nutrition: [
-      "Rich in carbohydrates.",
-      "Provides dietary fiber.",
-      "Good for digestive health.",
-    ]
-  },
-  {
-    id: 6,
-    image: riceImg,
-    category: "Grains",
-    name: "Rice",
-    weight: "5kg",
-    price: 250,
-    seller: "Sita Farms",
-    rating: 4.9,
-    description: "Premium quality rice.",
-    storage: "Keep in a dry, airtight container.",
-    nutrition: [
-      "Source of carbohydrates.",
-      "Low in fat.",
-      "Gluten-free grain.",
-    ]
-  },
-  {
-    id: 7,
-    image: appleImg,
-    category: "Fruits",
-    name: "Apple (Premium)",
-    weight: "1kg",
-    price: 130,
-    seller: "Himalaya Fresh",
-    rating: 4.8,
-    description: "Premium, organic apples from Himalaya.",
-    storage: "Refrigerate for longer shelf life.",
-    nutrition: [
-      "Higher antioxidants content.",
-      "Very juicy and crisp.",
-      "Low in calories.",
-    ]
-  },
-  {
-    id: 8,
-    image: tomatoImg,
-    category: "Vegetables",
-    name: "Tomato (Organic)",
-    weight: "1kg",
-    price: 35,
-    seller: "BioFarm",
-    rating: 4.3,
-    description: "Organically grown juicy tomatoes.",
-    storage: "Keep at room temperature.",
-    nutrition: [
-      "Source of lycopene.",
-      "Organic certified.",
-      "Rich taste.",
-    ]
-  },
-  {
-    id: 9,
-    image: bananaImg,
-    category: "Fruits",
-    name: "Banana (Red)",
-    weight: "1kg",
-    price: 45,
-    seller: "Raju Farmer",
-    rating: 4.4,
-    description: "Exotic red bananas, sweeter than regular.",
-    storage: "Store at cool and dry place.",
-    nutrition: [
-      "High in potassium and beta-carotene.",
-      "Antioxidant-rich.",
-      "Sweet flavor.",
-    ]
-  },
-  {
-    id: 10,
-    image: wheatImg,
-    category: "Grains",
-    name: "Durum Wheat",
-    weight: "5kg",
-    price: 260,
-    seller: "Punjab Agro",
-    rating: 4.7,
-    description: "Best for making pasta and bread.",
-    storage: "Keep in dry, air-tight container.",
-    nutrition: [
-      "High protein content.",
-      "Rich in B vitamins.",
-      "Ideal for pasta making.",
-    ]
-  },
-  {
-    id: 11,
-    image: potatoImg,
-    category: "Vegetables",
-    name: "Potato (New)",
-    weight: "2kg",
-    price: 38,
-    seller: "Ravi Agro",
-    rating: 4.2,
-    description: "Freshly harvested new potatoes.",
-    storage: "Store in a cool dark place.",
-    nutrition: [
-      "Low in calories.",
-      "Source of vitamin C.",
-      "Tender texture.",
-    ]
-  },
-  {
-    id: 12,
-    image: riceImg,
-    category: "Grains",
-    name: "Basmati Rice",
-    weight: "5kg",
-    price: 340,
-    seller: "Sita Farms",
-    rating: 4.8,
-    description: "Long grain Basmati rice for fragrant meals.",
-    storage: "Keep in an airtight jar.",
-    nutrition: [
-      "Aromatic and long-grained.",
-      "Low in cholesterol.",
-      "Gluten free.",
-    ]
-  },
-];
+import { CartContext } from '../contexts/CartContext';
 
 export default function SearchProducts() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("Relevance");
+  const [productsArr, setProductsArr] = useState([]);
+  const { addToCart2 } = useContext(CartContext);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/products');
+        setProductsArr(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const sorted = [...productsArr].sort((a, b) => {
     if (sort === "Price: Low to High") return a.price - b.price;
     if (sort === "Price: High to Low") return b.price - a.price;
-    // Relevance or unknown: no sort
     return 0;
   });
-
 
   const filtered = sorted.filter(
     p =>
@@ -272,7 +71,15 @@ export default function SearchProducts() {
       {/* Product grid */}
       <div className="ml-[120px] mr-[120px] mb-16 grid grid-cols-2 md:grid-cols-3 gap-y-9 gap-x-2 md:gap-x-4">
         {filtered.slice(0, 12).map(product => (
-          <ConsumerProduct product={product} key={product.id} />
+          <div key={product.id}>
+            <ConsumerProduct product={product} />
+            <button
+              onClick={() => addToCart2(product)}
+              className="mt-2 bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Add to Cart
+            </button>
+          </div>
         ))}
       </div>
       {filtered.length === 0 && (

@@ -9,7 +9,7 @@ const PriceTracking = () => {
         <div className='flex'>
             <Dash_Sidebar/>
             <div className='w-full'>
-                <div className='w-full flex justify-center items-center mb-[97px] bg-[#acacac] h-[135px] inter-regular text-[40px]'>logo</div>
+                <div className='w-full flex justify-center items-center bg-[#acacac] h-[135px] inter-regular text-[40px]'>logo</div>
                 <div>
                     <Tracking/>
                 </div>

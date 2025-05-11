@@ -20,11 +20,15 @@ import SearchProducts from './components/SearchProducts';
 import ConsumerSearch from './pages/ConsumerSearch';
 import ProductDescription from './components/ProductDescription';
 import ConsumerHomepage from './pages/ConsumerHomepage';
+import { CartProvider } from './contexts/CartContext';
+import Cart from './pages/Cart';
+import Cart2 from './pages/Cart2';
 
 function App() {
 
   return (
     <>
+    <CartProvider>
       <BrowserRouter>
         <Routes>
             <Route index element={<LandingPage />}/>
@@ -44,8 +48,11 @@ function App() {
             <Route path='/pricetracking' element={<PriceTracking />}/>
             <Route path='/rental' element={<RentEquipments />}/>
             <Route path='/product/:id' element={< ProductDescription/>}/>
+            <Route path='/rentalcart' element={< Cart/>}/>
+            <Route path='/consumercart' element={< Cart2/>}/>
         </Routes>
       </BrowserRouter>
+      </CartProvider>
     </>
   )
 }

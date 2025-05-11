@@ -19,7 +19,14 @@ exports.deleteEq = async (req, res) => {
   res.json({ message: 'Deleted' });
 };
 
-exports.listEq = (req, res) => Equipment.find().then(list => res.json(list));
+exports.listEq = async (req, res) => {
+  try {
+    const list = await Equipment.find();
+    res.json(list); // Ensure this is an array
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch equipments' });
+  }
+};
 
 // Simple “rent” toggler:
 exports.rentEq = async (req, res) => {

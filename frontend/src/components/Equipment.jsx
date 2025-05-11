@@ -2,21 +2,32 @@ import React from "react";
 
 const Equipment = ({ product }) => (
   <div className="bg-white rounded-xl shadow border p-4 w-full max-w-xs mx-auto flex flex-col">
-    {/* Image placeholder */}
-    <div className="bg-gray-300 rounded-lg mb-4 w-full h-32"></div>
+    {/* Displaying the image from the product */}
+    <div className="bg-gray-300 rounded-lg mb-4 w-full h-32">
+      {product.image ? (
+        <img
+          src={product.image}
+          alt={product.name}
+          className="object-cover w-full h-full rounded-lg"
+        />
+      ) : (
+        <div className="flex items-center justify-center w-full h-full">
+          No Image Available
+        </div>
+      )}
+    </div>
     <div className="flex-1 flex flex-col justify-between">
       <div>
         <div className="text-2xl font-serif mb-1">{product.name}</div>
-        <div className="text-lg font-serif mb-1">₹{product.price} per month</div>
+        <div className="text-lg font-serif mb-1">{product.description}</div>
+        <div className="text-lg font-serif mb-1">₹{product.price}</div>
+        <div className="text-md font-serif mb-1">Weekly Rate: ₹{product.weeklyRate}</div>
         <div className="text-xl font-serif mb-1">{product.location}</div>
+        <div className="text-md font-serif mb-1">Age: {product.ageOfProduct} years</div>
+        <div className="text-md font-serif mb-1">Available: {product.available ? 'Yes' : 'No'}</div>
       </div>
       <div className="flex justify-end items-center mt-2">
-        <button className="flex items-center bg-green-900 text-white px-4 py-1 rounded-lg hover:bg-green-800 transition text-lg font-semibold">
-          <svg className="w-6 h-6 mr-1" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5v14" stroke="currentColor" strokeLinecap="round" />
-          </svg>
-          Add
-        </button>
+        
       </div>
     </div>
   </div>

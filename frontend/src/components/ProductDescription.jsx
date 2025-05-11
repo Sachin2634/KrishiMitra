@@ -1,24 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { productsArr } from "./SearchProducts"; // Make sure to export productsArr
+import axios from 'axios';
 
 export default function ProductDescription() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const product = productsArr.find((p) => String(p.id) === String(id));
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/products/${_id}`);
+        setProduct(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to load product');
+        setLoading(false);
+      }
+    };
 
-  // For demo: placeholder data
-  const description = "Fresh and juicy apples";
-  const storage = "Store in dry and cool places away from direct sunlight";
-  const nutrition = [
-    "Rorem ipsum dolor sit amet,",
-    "consectetur adipiscing elit. Nunc vulputate",
-    "libero et velit interdum, ac aliquet odio mattis.",
-  ];
+    fetchProduct();
+  }, [id]);
 
-  if (!product) {
-    return <div className="p-10 text-2xl text-red-600">Product not found</div>;
+  if (loading) {
+    return <div className="p-10 text-2xl text-blue-600">Loading product...</div>;
+  }
+
+  if (error || !product) {
+    return <div className="p-10 text-2xl text-red-600">{error || 'Product not found'}</div>;
   }
 
   return (
@@ -46,7 +57,7 @@ export default function ProductDescription() {
           <div>
             <div className="text-xl text-gray-700 mb-1">{product.category}</div>
             <div className="text-2xl font-serif">{product.name}</div>
-            <div className="text-base text-gray-600 mt-1 mb-1">{description}</div>
+            <div className="text-base text-gray-600 mt-1 mb-1">{product.description}</div>
             <div className="text-base mb-1 mt-3">{product.weight}</div>
             <div className="text-2xl font-semibold mb-1">₹{product.price}</div>
             <div className="text-sm mb-3">By <span className="text-green-700">{product.seller}</span></div>
@@ -76,10 +87,10 @@ export default function ProductDescription() {
       {/* Details section */}
       <div className="mt-7 w-full max-w-3xl border rounded-xl bg-white p-6 shadow">
         <div className="font-semibold mb-1 text-[18px]">Storage Instructions</div>
-        <div className="mb-3">{storage}</div>
+        <div className="mb-3">{product.storage}</div>
         <div className="font-semibold mb-1 text-[18px]">Nutritional Values</div>
         <ul className="list-disc ml-5">
-          {nutrition.map((line, i) => (
+          {product.nutrition.map((line, i) => (
             <li key={i} className="my-1">{line}</li>
           ))}
         </ul>

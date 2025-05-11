@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export default function ConsumerNavbar() {
   return (
@@ -41,11 +42,13 @@ export default function ConsumerNavbar() {
             <path d="M12 21C12 21 4 13.5 4 8.5C4 5.46243 6.46243 3 9.5 3C11.0625 3 12.5 3.8125 13.25 5.03125C14 3.8125 15.4375 3 17 3C20.0376 3 22.5 5.46243 22.5 8.5C22.5 13.5 15 21 15 21H12Z" />
           </svg>
           {/* Cart */}
+          <Link to='/consumercart'>
           <svg className="w-10 h-10" fill="none" stroke="white" strokeWidth={2.2} viewBox="0 0 24 24">
             <circle cx="9.5" cy="19" r="1.5" fill="white"/>
             <circle cx="19.5" cy="19" r="1.5" fill="white"/>
             <path d="M3 3h2l1 9h14l1-6H6" stroke="white" strokeLinejoin="round"/>
           </svg>
+          </Link>
         </div>
       </div>
       {/* Search Bar */}

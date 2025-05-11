@@ -50,6 +50,7 @@ const AddProductForm = () => {
         },
       });
       console.log('Product created successfully', response.data);
+      alert('Product created successfully');
     } catch (error) {
       if (error.response) {
         console.error('Response data:', error.response.data);

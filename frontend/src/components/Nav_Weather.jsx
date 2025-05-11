@@ -3,6 +3,7 @@ import Weatherclouds from '../assets/Group 66.png'
 import locn from '../assets/Vector (4).png'
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { Link } from 'react-router';
 const Nav_Weather = () => {
   return (
     <div className='flex justify-between w-full h-[117px] bg-[#00CC5C] pl-[5.5vw] pr-[5.5vw]'>
@@ -30,7 +31,9 @@ const Nav_Weather = () => {
             </div>
         </div>
         <div className='flex mt-[34px]'>
+            <Link to='/rentalcart'>
             <MdOutlineShoppingCart style={{color:'white', width:'48px', height:'48px'}} />
+            </Link>
             <IoIosNotificationsOutline style={{color:'white', width:'48px', height:'48px', marginLeft:'51px'}} />
         </div>
     </div>
